@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05070a">
+<meta name="description" content="READ//OS — a hacker-terminal reading tracker. Local-first and offline-capable.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="READ//OS">
+<meta name="mobile-web-app-capable" content="yes">
+<title>READ//OS</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-accent="cyan" data-motion="on" data-mode="immersive" data-active="0">
+<div class="noisebg"></div>
+<div class="scanline"></div>
+<div id="daypopover"></div>
+<div class="toast" id="toast"></div>
+<div id="srAnnounce" class="sr-only" aria-live="polite" role="status"></div>
+<div id="confirmOverlay" class="confirm-overlay">
+  <div class="confirm-box">
+    <div id="confirmMsg" class="confirm-msg"></div>
+    <div class="btnrow" style="justify-content:flex-end;">
+      <button class="btn" id="confirmNo">CANCEL</button>
+      <button class="btn danger" id="confirmYes">CONFIRM</button>
+    </div>
+  </div>
+</div>
+
+<div id="app">
+  <nav class="sidebar" aria-label="Main navigation">
+    <div class="brand">READ//OS<small>v1.0 — reading kernel</small></div>
+    <button type="button" class="navitem active" data-view="dashboard"><span class="dot"></span>DASHBOARD</button>
+    <button type="button" class="navitem" data-view="sessions"><span class="dot"></span>SESSIONS</button>
+    <button type="button" class="navitem" data-view="books"><span class="dot"></span>BOOKS</button>
+    <button type="button" class="navitem" data-view="stats"><span class="dot"></span>STATS</button>
+    <button type="button" class="navitem" data-view="settings"><span class="dot"></span>SETTINGS</button>
+    <button type="button" id="sidebarSessionBadge" class="global-session-badge" style="display:none;" aria-label="Active reading session — go to dashboard"></button>
+    <div class="sidebar-foot"><span class="led" id="sidebarLed"></span><span id="sidebarStatus">SYSTEM ONLINE</span><br>LOCAL STORAGE: OK</div>
+  </nav>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column;min-height:0;">
+    <div class="topbar-mobile">
+      <div class="brand">READ//OS</div>
+      <button type="button" id="topbarSessionBadge" class="global-session-badge" style="display:none;" aria-label="Active reading session — go to dashboard"></button>
+      <span id="mobileStatusLed" style="font-size:9px;color:var(--text-dim);letter-spacing:1px;"><span class="led" id="mobileLed"></span><span id="mobileStatusText">ONLINE</span></span>
+    </div>
+    <main id="main" role="main"></main>
+    <div id="terminalMount"></div>
+  </div>
+</div>
+
+<nav class="bottomnav" aria-label="Mobile navigation">
+  <button type="button" class="navitem active" data-view="dashboard"><span class="icon">◉</span>HOME</button>
+  <button type="button" class="navitem" data-view="sessions"><span class="icon">☰</span>LOG</button>
+  <button type="button" class="navitem" data-view="books"><span class="icon">▤</span>BOOKS</button>
+  <button type="button" class="navitem" data-view="stats"><span class="icon">▦</span>STATS</button>
+  <button type="button" class="navitem" data-view="settings"><span class="icon">⚙</span>SET</button>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>
